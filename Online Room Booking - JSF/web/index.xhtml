@@ -1,14 +1,89 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@3.1.2/primeflex.css"></link>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/saga-blue.css"></link>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/arya-blue.css"></link>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/vela-blue.css"></link>
+    
     <h:head>
+        <style type="text/css">
+            body{
+                background-image: url(resources/images/home_page.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+            }
+            .toggle_btn{
+                padding: 10px 20px;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+                outline: none;
+                position: relative;
+            }
+            div.btn{
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 110px;
+                height: 100%;
+                background: linear-gradient(to right, lightskyblue, gray);
+                border-radius: 30px;
+                transition: .5s;
+                
+            }
+            div.input_group{
+                border-left: 0; border-right: 0; border-top: 0; border-bottom: 1px solid #999; outline: none; background: red;
+            }
+            #password{
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+                border-bottom: 1px solid #999;
+                outline: none;
+                background: red;
+            }
+        </style>
+        
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <div class="mt-8" style="display: flex; float: right;">
+            <div class="card mt-5 p-md-6" style="background: black; opacity: 0.7; padding-bottom: 50px; border-bottom-left-radius: 150px;">
+                <div class="p-2" style="font-size: 30px;">
+                    <div style="margin: 20px auto; height: 50px; border-radius: 30px; position: relative; box-shadow: 0 0 20px 9px #ff61241f; width: 220px;">
+                        <center >
+                            <div class="btn"></div>
+                            <h:commandButton styleClass="toggle_btn" value="Login"></h:commandButton>
+                            <h:commandButton styleClass="toggle_btn" style="color: white;" value="Register"></h:commandButton>
+                        </center><br/>
+                    </div>
+                </div>
+                <h:form class="mt-5">
+                    <div class="p-mb-2 p-mr-2 pl-6 pr-6">
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="username" style="color: white;" value="Username" /><br/>
+                            <p:inputText styleClass="input_group" id="username" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>
+                        </div><br></br>
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="password" style="color: white;" value="Password" /><br/>
+                            <p:inputText styleClass="input_group" id="password"  style="height: 20px; background: transparent; width: 250px; "/>
+                        </div><br></br>
+                        <div class="p-field p-col-12 p-md-6 mt-2">
+                            <h:commandButton action="#" style="border-radius: 10px; width:100%; font-size: 20px; background-color: lightskyblue; padding: 8px;" class="btn-success" value="Sign In"/>
+                        </div><br></br>
+                    </div>
+                </h:form>
+                <center style="color: red;"><i>You must log in first as an admin<br/>
+                        Demo username = 'admin'<br/>
+                        Demo password = 'admin'</i></center><br/>
+            </div>
+        </div>
     </h:body>
 </html>
 
