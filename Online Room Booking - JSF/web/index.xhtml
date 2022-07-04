@@ -13,7 +13,7 @@
     <h:head>
         <style type="text/css">
             body{
-                background-image: url(resources/images/home_page.jpg);
+                background: transparent;
                 background-repeat: no-repeat;
                 background-size: cover;
                 
@@ -25,6 +25,7 @@
                 cursor: pointer;
                 outline: none;
                 position: relative;
+                font-family: sans-serif;
             }
             div.btn{
                 top: 0;
@@ -50,40 +51,93 @@
             }
         </style>
         
-        <title>Facelet Title</title>
+        <title>iHouse.com</title>
     </h:head>
-    <h:body>
-        <div class="mt-8" style="display: flex; float: right;">
-            <div class="card mt-5 p-md-6" style="background: black; opacity: 0.7; padding-bottom: 50px; border-bottom-left-radius: 150px;">
-                <div class="p-2" style="font-size: 30px;">
+    <h:body style="background-image: url(resources/images/home_page.jpg);">
+        <div style="color: red; font-family: sans-serif; font-size: 50px;">
+            <b>i<i style="color: lightskyblue;">House.com</i></b>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div style="color: black; font-family: sans-serif;  margin-top: 150px;">
+                <center>
+                    <b style=" font-size: 30px;">Welcome to iHouse.com</b><br/><br/><br/><br/>
+                    <b style=" font-size: 20px;">Serve your needs at your own time and specifications. Are you ready?</b>
+                    
+                    <div class="p-2" style="font-size: 30px; display: flex; margin-top: 50px;">
+                        <div style="margin: 20px auto; height: 50px; border-radius: 30px; position: relative; box-shadow: 0 0 20px 9px #ff61241f; width: 220px;">
+                            <center >
+                                <h:form>
+                                    <div class="btn" style="width: 100%;"></div>
+                                    <h:commandButton styleClass="toggle_btn" style=" font-family: sans-serif; color: black;" value="Book your House"></h:commandButton>
+                                </h:form>
+                            </center><br/>
+                        </div>
+                        <div style="margin: 20px auto; height: 50px; border-radius: 30px; position: relative; box-shadow: 0 0 20px 9px #ff61241f; width: 220px;">
+                            
+                            <center >
+                                <h:form>
+                                <div class="btn" style="width: 100%;"></div>
+                                <h:commandButton styleClass="toggle_btn" action="#{buttonNavBean.show()}" style=" font-family: sans-serif; color: black;" value="Post Vacant House"></h:commandButton>
+                                </h:form>
+                                </center><br/>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        <div class="" style="display: flex; float: right; margin-left: 50px;  margin-top: 50px;">
+            <div class="card p-md-6" style="background: white; font-family: sans-serif; padding-bottom: 50px; border-bottom-left-radius: 150px;  box-shadow: 0 0 20px 9px #ff61241f;">
+                <h:form class="mt-5" rendered="#{buttonNavBean.renderBl}">
+                    <p:growl id="growl" sticky="false"/>
+                    <div class="p-2" style="font-size: 30px;">
                     <div style="margin: 20px auto; height: 50px; border-radius: 30px; position: relative; box-shadow: 0 0 20px 9px #ff61241f; width: 220px;">
                         <center >
                             <div class="btn"></div>
-                            <h:commandButton styleClass="toggle_btn" value="Login"></h:commandButton>
-                            <h:commandButton styleClass="toggle_btn" style="color: white;" value="Register"></h:commandButton>
+                            <h:commandButton action="#{buttonNavBean.setRenderLogIn(true)}" styleClass="toggle_btn" value="Login"></h:commandButton>
+                            
+                            <h:commandButton action="#{buttonNavBean.setRenderReg(true)}" styleClass="toggle_btn" style=" font-family: sans-serif; color: black;" value="Register"></h:commandButton>
                         </center><br/>
                     </div>
                 </div>
-                <h:form class="mt-5">
                     <div class="p-mb-2 p-mr-2 pl-6 pr-6">
                         <div class="p-field p-col-12 p-md-6">
-                            <p:outputLabel for="username" style="color: white;" value="Username" /><br/>
-                            <p:inputText styleClass="input_group" id="username" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>
-                        </div><br></br>
+                            <p:outputLabel for="username" style="color: black;" rendered="#{not buttonNavBean.renderReg}" value="Username" /><br/>
+                            <p:inputText styleClass="input_group" id="username" rendered="#{not buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>
+                            <p:outputLabel for="firstname" style="color: black;" value="Firstname" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputText styleClass="input_group" id="firstname" rendered="#{buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>
+                        </div>
                         <div class="p-field p-col-12 p-md-6">
-                            <p:outputLabel for="password" style="color: white;" value="Password" /><br/>
-                            <p:inputText styleClass="input_group" id="password"  style="height: 20px; background: transparent; width: 250px; "/>
-                        </div><br></br>
+                            <p:outputLabel for="password" style="color: black;" rendered="#{not buttonNavBean.renderReg}" value="Password" /><br/>
+                            <p:inputText styleClass="input_group" id="password" rendered="#{not buttonNavBean.renderReg}"  style="height: 20px; background: transparent; width: 250px;  border-width: 0 0 1px 0; border-style: solid;"/>
+                            <p:outputLabel for="lastname" style="color: black;" value="Lastname" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputText styleClass="input_group" id="lastname" rendered="#{buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>                                                        
+                        </div>
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="country" style="color: black;" value="Country" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputTextarea value="#{operationsBean.country}" rows="10" id="country" completeMethod="#{operationsBean.afriCo()}" rendered="#{buttonNavBean.renderReg}" style="width: 250px; border-top: none; background: transparent;"/>                                                        
+                        </div>
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="email" style="color: black;" value="Email" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputText styleClass="input_group" id="email" rendered="#{buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>                                                        
+                        </div>
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="rpassword" style="color: black;" value="Password" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputText styleClass="input_group" id="rpassword" rendered="#{buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>                                                        
+                        </div>
+                        <div class="p-field p-col-12 p-md-6">
+                            <p:outputLabel for="cpassword" style="color: black;" value="Confirm Password" rendered="#{buttonNavBean.renderReg}" /><br/>
+                            <p:inputText styleClass="input_group" id="cpassword" rendered="#{buttonNavBean.renderReg}" style="height: 20px; width: 250px; border-top: none; background: transparent;"/>                                                        
+                        </div>
                         <div class="p-field p-col-12 p-md-6 mt-2">
-                            <h:commandButton action="#" style="border-radius: 10px; width:100%; font-size: 20px; background-color: lightskyblue; padding: 8px;" class="btn-success" value="Sign In"/>
-                        </div><br></br>
+                            <p:commandButton  action="#{login.logIn()}" rendered="#{not buttonNavBean.renderReg}" style="border-radius: 10px; width:100%; font-size: 20px; background-color: lightskyblue; padding: 8px;" class="btn-success" value="Sign In" update="growl"/>
+                            <p:commandButton action="#"  rendered="#{buttonNavBean.renderReg}" style="border-radius: 10px; width:100%; font-size: 20px; background-color: lightskyblue; padding: 8px;" class="btn-success" value="Sign Up"/>
+                        </div>
                     </div>
                 </h:form>
-                <center style="color: red;"><i>You must log in first as an admin<br/>
-                        Demo username = 'admin'<br/>
-                        Demo password = 'admin'</i></center><br/>
             </div>
         </div>
+            
+        </div>
+        
     </h:body>
 </html>
 
