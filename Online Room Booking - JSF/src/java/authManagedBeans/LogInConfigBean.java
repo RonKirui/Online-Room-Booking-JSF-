@@ -23,10 +23,10 @@ public class LogInConfigBean {
     public LogInConfigBean() {
     }
     
-    public void logIn(){
+    public String logIn(){
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Logged in successfully!!") );
         
-        //return "landlordHome.xhtml?faces=redirect=true";
+        return "landlordHome.xhtml?faces=redirect=true";
     }
 }
