@@ -20,38 +20,59 @@
         </h:head>
 
         <h:body>
-
-            <p:layout fullPage="true">
-
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+            <div class="" style="background-color: white; width: 100%;">
+                <h:form style=" width: 100%;">
+                    <p:growl id="messages"/>
                     
-                    <div style="color: red; font-family: sans-serif; font-size: 50px;">
-                        <b>i<i style="color: lightskyblue;">House.com</i></b>
-                     </div>
-                </p:layoutUnit>
+                    <p:menubar style="background-color: transparent; border-right: none;border-left: none;border-top: none;">
+                        
 
-                <p:layoutUnit position="south" size="90" closable="true" collapsible="true">
-                    Service to serve the nation of Kenya
-                </p:layoutUnit>
+                        <p:submenu style="float: right;" label="Account" icon="pi pi-fw pi-pencil">
+                            <p:menuitem value="Profile" icon="pi pi-fw pi-power-off"/>
+                            <p:menuitem value="Settings" icon="pi pi-fw pi-power-off"/>
+                            <p:menuitem value="Logout" icon="pi pi-fw pi-power-off"/>
+                        </p:submenu>
+                        
 
-                <p:layoutUnit position="west" size="250" collapsible="true" style="margin-left: 5px;">
-                    <p:menu style="background-color: white; height: fit-content; border: none;">
-                        <p:menuitem style="margin-top: 20px;" value="Demo" url="#"/>
-                        <p:menuitem style="margin-top: 20px;" value="Documentation" url="#"/>
-                        <p:menuitem style="margin-top: 20px;" value="Forum" url="#"/>
-                        <p:menuitem style="margin-top: 20px;" value="Themes" url="#"/>
+                        <p:submenu style="float: right; padding-right: 100px;"  class="float-right" label="Events" icon="pi pi-fw pi-calendar">
+                            <p:submenu label="Edit" icon="pi pi-fw pi-pencil">
+                                <p:menuitem value="Save" icon="pi pi-fw pi-calendar-plus"/>
+                                <p:menuitem value="Delete" icon="pi pi-fw pi-calendar-minus"/>
+                            </p:submenu>
+                            <p:submenu label="Archieve" icon="pi pi-fw pi-calendar-times">
+                            <p:menuitem value="Remove" icon="pi pi-fw pi-calendar-minus"/>
+                            </p:submenu>
+                        </p:submenu>
+                        <p:submenu style=" float: right; background-color: white; border: none;" label="File" icon="pi pi-fw pi-file">
+                            <p:submenu style="background-color: blue; border: none;" label="New" icon="pi pi-fw pi-plus">
+                                <p:menuitem value="Bookmark" icon="pi pi-fw pi-bookmark"/>
+                                <p:menuitem value="Video" icon="pi pi-fw pi-video"/>
+                            </p:submenu>
+                            <p:menuitem value="Delete" icon="pi pi-fw pi-trash"/>
+                
+                            <p:menuitem value="Export" icon="pi pi-fw pi-external-link"/>
+                        </p:submenu>
 
+                        <p:submenu  style="float: right;" label="Edit">
+                            <p:menuitem value="Left" icon="pi pi-fw pi-align-left"/>
+                            <p:menuitem value="Right" icon="pi pi-fw pi-align-right"/>
+                            <p:menuitem value="Center" icon="pi pi-fw pi-align-center"/>
+                            <p:menuitem value="Justify" icon="pi pi-fw pi-align-justify"/>
+                        </p:submenu>
 
-                    </p:menu>
-                </p:layoutUnit>
-
-                <p:layoutUnit position="center">
-                    Dashboard
-                </p:layoutUnit>
-
-            </p:layout>
-            
-
+                        <p:submenu style="float: right;" label="Users" icon="pi pi-fw pi-user">
+                            <p:menuitem value="New" icon="pi pi-fw pi-user-plus"/>
+                            <p:menuitem value="Delete" icon="pi pi-fw pi-user-minus"/>
+                            <p:submenu label="Search" icon="pi pi-fw pi-users">
+                                <p:submenu label="Filter" icon="pi pi-fw pi-filter">
+                                    <p:menuitem value="Print" icon="pi pi-fw pi-print"/>
+                                </p:submenu>
+                                <p:menuitem value="List" icon="pi pi-fw pi-bars"/>
+                            </p:submenu>
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </div>
         </h:body>
 
     </f:view>
