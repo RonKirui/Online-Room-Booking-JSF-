@@ -29,4 +29,9 @@ public class LogInConfigBean {
         
         return "landlordHome.xhtml?faces=redirect=true";
     }
+    public String version(){
+        String v = FacesContext.class.getPackage().getImplementationVersion();
+        
+        return v;
+    }
 }

@@ -6,6 +6,7 @@ package navigationBean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 /**
  *
@@ -14,8 +15,8 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class buttonNavBean {
-    boolean renderBl,renderReg,renderLogIn = true;
-    
+    boolean renderBl,renderReg,renderLogIn = true, renderMenu=false;
+
 
     /**
      * Creates a new instance of buttonNavBean
@@ -28,6 +29,14 @@ public class buttonNavBean {
         this.renderReg = renderReg;
         this.renderLogIn = renderLogIn;
     }
+    public boolean isRenderMenu() {
+        return renderMenu;
+    }
+
+    public void setRenderMenu(boolean renderMenu) {
+        this.renderMenu = renderMenu;
+    }
+    
 
     public boolean isRenderLogIn() {
         return renderLogIn;
@@ -55,5 +64,13 @@ public class buttonNavBean {
    
     public void show(){
         setRenderBl(true);
+    }
+    public void menuOption(){
+        if(renderMenu!=false){
+            setRenderMenu(false);
+        }
+        else{
+            setRenderMenu(true);
+        }
     }
 }
